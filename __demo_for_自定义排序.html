@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+	       <h1>Custom Sort(自定义排序)</h1>
+        <p>Use <code>sorter</code> column option to define the custom sort of bootstrap table.</p>
+
+
+        <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-url="./json/data1.json"
+
+               data-sort-name="price"
+               data-sort-order="desc">
+            <thead>
+            <tr>
+                <th data-field="id" data-sortable="true">Item ID</th>
+                <th data-field="name" data-sortable="true">Item Name</th>
+                <th data-field="price" data-sortable="true" data-sorter="priceSorter">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+
+
+
+<script>
+
+      //比如需求是用价格排序
+      //但是价格传过来的值时$1,$90这样的字符，不能直接比较
+      //因此需要用自定义的函数处理一下
+
+      function priceSorter(a, b) {
+        console.log('a:'+a);
+        console.log('b:'+b);
+        // a,b代表该列数据前后两个的值
+        a = +a.substring(1); // remove $保存数字部分，加号用于parseInt
+        b = +b.substring(1);
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

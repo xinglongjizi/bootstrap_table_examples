@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="../dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="../dist/bootstrap-table.min.js"></script>
+<script src="../dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+		<h1>filterBy(过滤(只能客户端过滤))</h1>
+        <p>
+            (Can use only in client-side(客户端)) Filter data in table, <br />
+            e.g. You can filter <code>{age: 10}</code> to show the data only age is equal to 10. <br />
+            You can also filter with an array of values, as in: <code>{age: 10, hairColor: ["blue", "red", "green"]}</code> to find data where age is equal to 10 and hairColor is either blue, red, or green.<br />
+            In this example, we filter by:
+            <pre>
+$table.bootstrapTable('filterBy', {
+    id: [1, 2, 3]
+});</pre>
+        </p>
+
+        <button id="button" class="btn btn-default">filterBy</button>
+
+        <table id="table"
+               data-toggle="table"
+               data-height="400"
+               data-url="../json/data1.json">
+
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+
+<script>
+
+	var $table = $('#table'),
+        $button = $('#button');
+
+    $(function () {
+        $button.click(function () {
+            $table.bootstrapTable('filterBy', {
+                id: [1, 2, 3]
+            });
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+<style>
+        .w70 {width: 70px !important;}
+    </style>
+</head>
+<body>
+
+      	<h1>Custom Toolbar</h1>
+        <p>Use <code>toolbar</code> option to define the custom toolbars.</p>
+
+        <div id="toolbar">
+            <div class="form-inline">
+                <div class="form-group">
+                    <span>Offset: </span>
+                    <input name="offset" class="form-control w70" type="number" value="0">
+                </div>
+                <div class="form-group">
+                    <span>Limit: </span>
+                    <input name="limit" class="form-control w70" type="number" value="5">
+                </div>
+                <div class="form-group">
+                    <input name="search" class="form-control" type="text" placeholder="Search">
+                </div>
+                <button id="ok" type="submit" class="btn btn-default">OK</button>
+            </div>
+        </div>
+
+        <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-toolbar="#toolbar"
+               data-show-refresh="true"
+               data-show-toggle="true"
+               data-show-columns="true"
+               data-query-params="queryParams"
+               data-response-handler="responseHandler"
+               data-url="./json/data1.json">
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+
+
+<script>
+	var $table = $('#table'),
+        $ok = $('#ok');
+
+    $(function () {
+
+        $ok.click(function () {
+            $table.bootstrapTable('refresh');//刷新table
+        });
+
+    });
+
+    function queryParams() {
+        var params = {};
+        $('#toolbar').find('input[name]').each(function () {
+            params[$(this).attr('name')] = $(this).val();
+        });
+        return params;
+    }
+
+    function responseHandler(res) {
+        return res.rows;
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

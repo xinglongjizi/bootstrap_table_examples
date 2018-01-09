@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+  	   <h1>Disabled Checkbox</h1>
+        <p>Use <code>checkboxHeader</code>, <code>checkboxEnable</code> options and <code>formatter</code> column option to disabled select input.</p>
+
+        <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-click-to-select="true"
+               data-url="./json/data1.json">
+
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"
+                    data-formatter="stateFormatter"></th>
+
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+
+
+
+<script>
+	function stateFormatter(value, row, index) {
+        console.log(value);
+        if (index === 2) {
+            return {
+                disabled: true
+            };
+        }
+        if (index === 5) {
+            return {
+                disabled: true,
+                checked: true
+            }
+        }
+        return value;
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

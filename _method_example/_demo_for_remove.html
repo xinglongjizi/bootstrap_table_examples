@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="../dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="../dist/bootstrap-table.min.js"></script>
+<script src="../dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+		<h1>remove</h1>
+        <p>
+            Remove data from table, the params contains two properties:<br>
+            field: the field name of remove rows.<br>
+            values: the array of values for rows which should be removed.<br>
+            <code>$table.bootstrapTable('remove', {field: 'id', values: ids});</code>
+        </p>
+
+        <button id="button" class="btn btn-default">remove</button>
+
+        <table id="table"
+               data-toggle="table"
+               data-height="428"
+               data-url="../json/data1.json">
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+
+<script>
+		var $table = $('#table'),
+        $button = $('#button');
+
+    $(function () {
+        $button.click(function () {
+            var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id;
+            });
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="../dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="../dist/bootstrap-table.min.js"></script>
+<script src="../dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+	 	<h1>destroy</h1>
+        <p>
+            Destroy the bootstrap table: <code>$table.bootstrapTable('destroy');</code>
+        </p>
+
+		<button id="button" class="btn btn-default">destroy</button>
+        <button id="button2" class="btn btn-default">build</button>
+
+<!-- 只有用data-url直接load数据的时候，才用data-toggle="table"这个属性 -->
+<!-- 如果是用js加载数据的画，记得要把data-toggle="table"去掉，不然永远load不出数据 -->
+<!-- 在再次装载另外的data前，调用$('#customerTable').bootstrapTable('destroy');先销毁table才可以再次装载数据到table中 -->
+        <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-url="../json/data1.json">
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+
+
+<script>
+	 var $table = $('#table'),
+        $button = $('#button'),
+        $button2 = $('#button2');
+
+    $(function () {
+        $button.click(function () {
+            $table.bootstrapTable('destroy');
+        });
+        $button2.click(function () {
+            $table.bootstrapTable();
+        });
+    });
+
+</script>
+</body>
+</html>

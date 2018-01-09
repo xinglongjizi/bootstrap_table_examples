@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+    <h1>Basic Sort(基本排序)</h1>
+        <p>使用sortName、sortOrder、sortable 配置, and <code>sortable</code>, <code>order</code> column options to set the basic sort of bootstrap table.</p>
+
+
+
+	   <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-url="./json/data1.json"
+
+               data-sort-name="id"
+               data-sort-order="desc">
+
+            <thead>
+                  <tr>
+                      <th data-field="id" data-sortable="true">Item ID</th>
+                      <th data-field="name" data-sortable="true">Item Name</th>
+                      <th data-field="price" data-sortable="true">Item Price</th>
+                  </tr>
+            </thead>
+        </table>
+
+
+
+
+
+
+<script>
+	var $table = $('#table');
+
+    $(function () {
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>

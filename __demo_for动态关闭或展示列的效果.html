@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+
+  <!-- 动态关闭列和展示列的效果 -->
+
+	<table id="table" data-toggle="table" data-height="460"
+         data-url="./json/data5.json"
+         data-show-columns="true"
+         data-id-field="id">
+
+    <thead>
+            <tr>
+                <th data-field="state" data-radio="true"></th>
+                <th data-field="name" data-switchable="false">Name</th>
+                <th data-field="price">Price</th>
+                <th data-field="column1">Columns1</th>
+                <th data-field="column2" data-visible="false">Columns2</th>
+                <th data-field="column3" data-switchable="false">Columns3</th>
+                <th data-field="column4" data-visible="false">Columns4</th>
+            </tr>
+    </thead>
+</table>
+
+
+
+
+
+
+<script>
+	var $table = $('#table');
+
+    $(function () {
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>

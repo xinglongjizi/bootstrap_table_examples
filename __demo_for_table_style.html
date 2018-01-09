@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- bootstrap css -->
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap table css -->
+<link rel="stylesheet" href="./dist/bootstrap-table.min.css">
+
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap table js -->
+<script src="./dist/bootstrap-table.min.js"></script>
+<script src="./dist/locale/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+
+	<table data-toggle="table" data-url="./json/data1.json"
+         data-height="400" data-row-style="rowStyle">
+
+      <thead>
+            <tr>
+                <th data-field="id" class="col-md-2">Item ID</th>
+
+                <th data-field="name" class="col-md-6">
+                    <i class="glyphicon glyphicon-star"></i>Item Name
+                </th>
+
+                <th data-field="price" class="col-md-4">
+                    <i class="glyphicon glyphicon-heart"></i>Item Price
+                </th>
+            </tr>
+      </thead>
+  </table>
+
+
+
+
+
+
+<script>
+    //对应data-row-style="rowStyle"的回调函数
+	 function rowStyle(row, index) {
+        //console.log( row ); //row是一个对象，代表每一行的数据
+        //console.log( index ); //index代表每一行的索引，从0开始
+        var classes = ['active', 'success', 'info', 'warning', 'danger'];
+
+        //反正就是给相应行添加class值，便于写样式
+        if ( index % 2 === 0 && //偶数行
+             index / 2 < classes.length) {
+            return {
+                classes: classes[index / 2]
+            };
+        }
+        return {};
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
